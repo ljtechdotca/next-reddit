@@ -1,0 +1,61 @@
+.root {
+  background: var(--background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--accent-1);
+}
+
+.container {
+  padding: 0.5rem 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.menu {
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  width: 2rem;
+  background: unset;
+  border: 1px solid var(--accent-1);
+  border-radius: 3px;
+}
+
+.list_menu {
+  background: var(--background);
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  top: calc(3.25rem + 1px);
+  border-bottom-left-radius: 3px;
+  border-left: 1px solid var(--accent-1);
+  border-bottom: 1px solid var(--accent-1);
+}
+
+.item {
+  display: grid;
+}
+
+.button {
+  padding: 0.5rem;
+  justify-content: space-between;
+  background: unset;
+  border: unset;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  &_toggle {
+    @extend .button;
+  }
+}
+
+.toggle {
+}
