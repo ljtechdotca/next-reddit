@@ -1,0 +1,16 @@
+.alert {
+  color: var(--red);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  margin-right: 0.5rem;
+}
+
+.container {
+  padding: 1rem;
+}

@@ -1,6 +1,5 @@
 // create a new post on the current subreddit
-import { fetchWrapper, handleStrings } from "@lib/helpers";
-import { handlePaths } from "@lib/helpers/handle-paths";
+import { fetchWrapper, handlePaths, handleStrings } from "@lib/helpers";
 import { IPath, ISub } from "@lib/interfaces";
 import styles from "@styles/Default.module.scss";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -35,10 +34,11 @@ interface ICreatePostPage {
 
 const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
   const [alert, setAlert] = useState<string | null>(null);
+  // todo : if sub comes through bad, this will throw an error
   const [form, setForm] = useState({
     name: "",
     body: "",
-    sub: sub._id,
+    sub: { _id: sub._id, uri: sub.uri },
   });
   const router = useRouter();
 

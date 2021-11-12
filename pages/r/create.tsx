@@ -1,5 +1,6 @@
 // create a new subreddit
 import { fetchWrapper, handleStrings } from "@lib/helpers";
+import AlertTriangle from "@public/icons/alert-triangle.svg";
 import styles from "@styles/Default.module.scss";
 import type { NextPage } from "next";
 import { useRouter } from "next/dist/client/router";
@@ -71,10 +72,18 @@ const CreateSubPage: NextPage = () => {
               required
             />
           </fieldset>
+          {alert ? (
+            <div className={styles.alert}>{alert}</div>
+          ) : (
+            <div className={styles.alert}>
+              <span className={styles.icon}>
+                <AlertTriangle width={16} height={16} />
+              </span>
+              No Alerts
+            </div>
+          )}
           <button>CREATE COMMUNITY</button>
         </form>
-        <pre>{JSON.stringify({ form }, null, 2)}</pre>
-        <pre>{JSON.stringify({ alert }, null, 2)}</pre>
         <Link href="/r/all">
           <a className={styles.button}>BACK TO r/all</a>
         </Link>

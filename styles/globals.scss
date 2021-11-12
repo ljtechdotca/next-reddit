@@ -1,7 +1,31 @@
 :root {
-  --background: #fff;
-  --foreground: #000;
-  --accent-1: #ddd;
+  --blue: dodgerblue;
+  --red: red;
+  --orange: orangered;
+  .dark {
+    --accent-1: #fafafa;
+    --accent-2: #eaeaea;
+    --accent-3: #999;
+    --accent-4: #888;
+    --accent-5: #666;
+    --accent-6: #444;
+    --accent-7: #333;
+    --accent-8: #141414;
+    --background: #000;
+    --foreground: #fff;
+  }
+  .light {
+    --accent-1: #141414;
+    --accent-2: #333;
+    --accent-3: #444;
+    --accent-4: #666;
+    --accent-5: #888;
+    --accent-6: #999;
+    --accent-7: #eaeaea;
+    --accent-8: #fafafa;
+    --background: #fff;
+    --foreground: #000;
+  }
 }
 
 a {
@@ -30,7 +54,14 @@ fieldset {
   margin-bottom: 0.5rem;
 }
 
+input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
 textarea {
+  width: 100%;
+  padding: 0.5rem;
   resize: unset;
 }
 
@@ -40,6 +71,8 @@ ul {
 
 button {
   cursor: pointer;
+  background: unset;
+  border: unset;
 }
 
 * {

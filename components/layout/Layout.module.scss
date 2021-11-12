@@ -1,6 +1,15 @@
 .root {
-  }
-  
+  display: grid;
+}
+
 .container {
-  
+  padding: 1rem;
+  display: flex;
+  max-width: 1024px;
+  width: 100%;
+  margin: auto;
+}
+
+.posts {
+  flex: 1 1 0%;
 }

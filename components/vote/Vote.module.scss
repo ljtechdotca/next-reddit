@@ -1,6 +1,19 @@
 .root {
-  }
-  
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  background: var(--accent-8);
+  margin-right: 0 0.5rem 0 0.5rem;
+}
+
+.button {
+  color: var(--accent-7);
+  display: grid;
+  height: 1.5rem;
+  border-radius: 3px;
+  place-items: center;
+  width: 1.5rem;
+}
+
 .container {
-  
 }

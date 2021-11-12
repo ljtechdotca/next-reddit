@@ -1,6 +1,10 @@
 .root {
-  }
-  
+  background: var(--blue);
+  color: var(--background);
+}
+
 .container {
-  
+  max-width: 1024px;
+  padding: 0.5rem 1rem;
+  margin: auto;
 }

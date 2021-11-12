@@ -3,59 +3,79 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--accent-1);
+  border-bottom: 1px solid var(--accent-7);
 }
 
 .container {
+  align-items: center;
+  display: flex;
+  height: 3.5rem;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .link {
+  align-items: center;
   display: flex;
+  font-weight: 600;
   padding: 0.5rem;
+  &:hover {
+    background: var(--blue);
+    color: var(--background);
+  }
+}
+
+.icon {
+  display: grid;
+  padding: 0.25rem;
+  place-items: center;
 }
 
 .menu {
-  display: grid;
-  place-items: center;
-  height: 2rem;
-  width: 2rem;
-  background: unset;
-  border: 1px solid var(--accent-1);
+  color: var(--foreground);
+  align-items: center;
   border-radius: 3px;
+  border: 1px solid var(--accent-7);
+  display: flex;
 }
 
-.list_menu {
+.list {
   background: var(--background);
-  position: absolute;
-  z-index: 100;
-  right: 0;
-  top: calc(3.25rem + 1px);
   border-bottom-left-radius: 3px;
-  border-left: 1px solid var(--accent-1);
-  border-bottom: 1px solid var(--accent-1);
+  border-bottom: 1px solid var(--accent-7);
+  border-left: 1px solid var(--accent-7);
+  position: absolute;
+  right: 0;
+  top: 3.5rem;
+  z-index: 100;
 }
 
 .item {
   display: grid;
 }
 
+.break {
+  border-top: 1px solid var(--accent-7);
+  border-right: unset;
+  border-bottom: unset;
+  border-left: unset;
+  margin-left: 0.75rem;
+}
+
 .button {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 1rem;
   padding: 0.5rem;
-  justify-content: space-between;
-  background: unset;
-  border: unset;
   display: flex;
   align-items: center;
-  width: 100%;
-  &_toggle {
-    @extend .button;
+  &:hover {
+    background: var(--blue);
+    color: var(--background);
   }
 }
 
 .toggle {
+  margin-left: auto;
 }

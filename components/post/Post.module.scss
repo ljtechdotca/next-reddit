@@ -1,6 +1,35 @@
 .root {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  color: var(--accent-2);
+}
+
+.link {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem;
+  display: inline-flex;
+  &:hover {
+    text-decoration: underline;
   }
-  
+}
+
 .container {
-  
+  padding: 0.25rem;
+}
+
+.base {
+  padding: 0.25rem;
+}
+
+.icon {
+  display: grid;
+  padding: 0.25rem;
+  place-items: center;
 }

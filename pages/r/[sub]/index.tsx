@@ -1,6 +1,6 @@
 // top posts from current sub
-import { fetchWrapper } from "@lib/helpers";
-import { handlePaths } from "@lib/helpers/handle-paths";
+import { Layout } from "@components";
+import { fetchWrapper, handlePaths } from "@lib/helpers";
 import { IPath, ISub } from "@lib/interfaces";
 import styles from "@styles/Default.module.scss";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -43,7 +43,7 @@ const SubPage: NextPage<ISubPage> = ({ sub }) => {
         <Link href={`/r/${sub.uri}/create`}>
           <a className={styles.button}>CREATE POST on r/{sub.uri}</a>
         </Link>
-        <pre>{JSON.stringify({ sub }, null, 2)}</pre>
+        <Layout sub={sub} posts={sub.posts} />
       </div>
     </div>
   );

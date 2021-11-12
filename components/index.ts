@@ -4,4 +4,4 @@ export * from "./layout/Layout";
 export * from "./post/Post";
 export * from "./sidebar/Sidebar";
 export * from "./vote/Vote";
-export * from "./context/Context";
+export * from "./datacontext/DataContext";

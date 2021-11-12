@@ -1,6 +1,5 @@
 // top comments on current post and post body
-import { fetchWrapper } from "@lib/helpers";
-import { handlePaths } from "@lib/helpers/handle-paths";
+import { fetchWrapper, handlePaths } from "@lib/helpers";
 import { IPath, IPost } from "@lib/interfaces";
 import styles from "@styles/Default.module.scss";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";

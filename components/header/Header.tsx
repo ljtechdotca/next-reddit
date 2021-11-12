@@ -1,14 +1,36 @@
+import { getCookie } from "@lib/helpers/cookies";
+import { setCookie } from "@lib/helpers/cookies/set-cookie";
+import { useGlobal } from "@lib/hooks";
+import ChevronDown from "@public/icons/chevron-down.svg";
+import HelpCircle from "@public/icons/help-circle.svg";
+import LogIn from "@public/icons/log-in.svg";
+import Moon from "@public/icons/moon.svg";
+import User from "@public/icons/user.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-
 export interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
   const [active, setActive] = useState(false);
+  const [{ theme }, dispatch] = useGlobal();
 
-  // todo ThemeContext
-  function handleTheme() {}
+  useEffect(() => {
+    let themeValue = getCookie("theme");
+    !themeValue && setCookie("theme", "light");
+    themeValue = !themeValue ? "light" : themeValue;
+    dispatch({ type: "theme", payload: themeValue });
+  }, [dispatch]);
+
+  function handleTheme(e: React.MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
+    let previousTheme = getCookie("theme");
+    const newTheme = previousTheme === "light" ? "dark" : "light";
+    dispatch({ type: "theme", payload: newTheme });
+    document.body.className = "";
+    document.body.classList.add(newTheme);
+    setCookie("theme", newTheme);
+  }
 
   function handleMenu(e: React.MouseEvent<HTMLButtonElement>) {
     e.stopPropagation();
@@ -20,10 +42,10 @@ export const Header = ({}: HeaderProps) => {
   }
 
   useEffect(() => {
-    document.body.addEventListener("click", closeMenu);
+    window.addEventListener("click", closeMenu);
 
     return () => {
-      document.removeEventListener("click", closeMenu);
+      window.removeEventListener("click", closeMenu);
     };
   }, []);
 
@@ -34,32 +56,49 @@ export const Header = ({}: HeaderProps) => {
           <a className={styles.link}>✨ next-reddit</a>
         </Link>
         <button className={styles.menu} onClick={handleMenu}>
-          🍔
+          <span className={styles.icon}>
+            <User width={16} height={16} />
+          </span>
+          <span className={styles.icon}>
+            <ChevronDown width={16} height={16} />
+          </span>
         </button>
         {active && (
-          <ul className={styles.list_menu} onClick={(e) => e.stopPropagation()}>
-            <li className={styles.item}>
-              <button className={styles.button_toggle} onClick={handleTheme}>
-                🌛 Night Mode
+          <div className={styles.list} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.item}>
+              <button className={styles.button} onClick={handleTheme}>
+                <span className={styles.icon}>
+                  <Moon width={16} height={16} />
+                </span>
+                Night Mode
                 <input
+                  checked={theme === "dark" ? true : false}
                   className={styles.toggle}
-                  type="checkbox"
-                  value={active ? "checked" : "none"}
                   readOnly
+                  type="checkbox"
                 />
               </button>
-            </li>
-            <li className={styles.item}>
+            </div>
+            <div className={styles.item}>
               <Link href="/awards">
-                <a className={styles.link}>🔮 Awards</a>
+                <a className={styles.link}>
+                  <span className={styles.icon}>
+                    <HelpCircle width={16} height={16} />
+                  </span>
+                  Help
+                </a>
               </Link>
-            </li>
-            <li className={styles.item}>
+            </div>
+            <hr className={styles.break} />
+            <div className={styles.item}>
               <button className={styles.button}>
-                <span>👤 Log In / Sign Out</span>
+                <span className={styles.icon}>
+                  <LogIn width={16} height={16} />
+                </span>
+                Log In / Sign Out
               </button>
-            </li>
-          </ul>
+            </div>
+          </div>
         )}
       </nav>
     </header>

@@ -8,13 +8,14 @@
     - post
       - post items
     - vote
-    ☐ layout
-      - header
-      - sidebar
-      - banner
+    ✔ layout @done(21-11-12 14:26)
+      ✘ header @cancelled(21-11-12 13:02)
+      ✔ sidebar @done(21-11-12 14:26)
+      ✔ banner @done(21-11-12 14:26)
+      ✔ post @done(21-11-12 14:26)
     ✔ header @done(21-11-11 16:20)
       ✔ dropdown menu @done(21-11-11 16:20)
-      - theme toggle
+      ✔ theme toggle @done(21-11-12 14:01)
     ✔ banner @done(21-11-11 16:20)
     ☐ sidebar
       - create new sub
