@@ -1,7 +1,4 @@
-export interface IAction {
-  type: string;
-  payload: any;
-}
+import { IAction, IToken, IUser } from "@lib/interfaces";
 
 export const contextReducer = (state: any, action: IAction) => {
   const { type, payload } = action;
@@ -16,15 +13,13 @@ export const contextReducer = (state: any, action: IAction) => {
         };
       }
       break;
-    case "user":
+    case "token":
       {
-        const user: any = payload;
-        console.log({ user });
+        const token: IToken | null = payload;
         newState = {
           ...state,
-          user,
+          token,
         };
-        console.log({ newState });
       }
       break;
     default:

@@ -1,3 +1,4 @@
+import { JwtPayload } from "jsonwebtoken";
 import { ObjectId } from "mongoose";
 import { ParsedUrlQuery } from "querystring";
 
@@ -64,6 +65,16 @@ export interface IUser {
   posts: IPost[];
   updatedAt: any;
   uri: string;
+}
+
+export interface IAction {
+  type: string;
+  payload: any;
+}
+
+export interface IToken extends JwtPayload {
+  _id?: string | ObjectId;
+  uri?: string;
 }
 
 export interface IParams {

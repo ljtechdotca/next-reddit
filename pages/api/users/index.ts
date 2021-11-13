@@ -31,10 +31,12 @@ export default async function handler(
         if (findUsers.length > 0) throw new Error("This User Already Exists");
         createUser = await User.create(body);
         if (!createUser) throw new Error("Error Creating User");
-        const token = jwt.sign({ password: body.password }, SECRET_KEY, {
-          expiresIn: "1m",
-        });
-        const cookie = handleCookies.create("user", token, 60, "/");
+        const token = jwt.sign(
+          { _id: createUser._id, uri: body.uri },
+          SECRET_KEY,
+          { expiresIn: "1hr" }
+        );
+        const cookie = handleCookies.create("user", token, 3600, "/");
         res.setHeader("Set-Cookie", cookie);
         res.status(201).json({ user: createUser });
         break;

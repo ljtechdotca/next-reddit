@@ -1,5 +1,6 @@
 // create a new subreddit
 import { fetchWrapper, handleStrings } from "@lib/helpers";
+import { useGlobal } from "@lib/hooks";
 import AlertTriangle from "@public/icons/alert-triangle.svg";
 import styles from "@styles/Default.module.scss";
 import type { NextPage } from "next";
@@ -9,13 +10,13 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 const LogInPage: NextPage = () => {
+  const router = useRouter();
+  const [{ token }, dispatch] = useGlobal();
   const [alert, setAlert] = useState<string | null>(null);
   const [form, setForm] = useState({
     uri: "",
     password: "",
   });
-
-  const router = useRouter();
 
   const handleForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,7 +25,10 @@ const LogInPage: NextPage = () => {
     };
     fetchWrapper
       .post("/api/users/auth", user)
-      .then((data) => router.push("/r/all"))
+      .then((data) => {
+        dispatch({ type: "token", payload: data.token });
+        router.push("/r/all");
+      })
       .catch((error) => setAlert(error));
   };
 

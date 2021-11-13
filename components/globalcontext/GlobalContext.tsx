@@ -1,10 +1,10 @@
 import { GlobalContext } from "@lib/context";
-import { IUser } from "@lib/interfaces";
+import { IToken } from "@lib/interfaces";
 import { useReducer } from "react";
 
 export interface IInitialState {
   theme: string | null;
-  user: IUser | null;
+  token: IToken | null;
 }
 
 export const initialState = {
