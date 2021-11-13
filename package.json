@@ -9,18 +9,20 @@
     "component": "node ./lib/cli/component.mjs"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
     "next": "12.0.3",
-    "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react": "17.0.2",
     "sass": "^1.43.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
+    "@types/jsonwebtoken": "^8.5.5",
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",
-    "eslint": "7",
     "eslint-config-next": "12.0.3",
+    "eslint": "7",
     "typescript": "4.4.4"
   }
 }

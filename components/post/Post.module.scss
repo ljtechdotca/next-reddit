@@ -1,5 +1,6 @@
 .root {
   display: flex;
+  width: 100%;
   border-radius: 3px;
   overflow: hidden;
   margin: 0.5rem 0;
@@ -21,7 +22,8 @@
   color: var(--accent-2);
 }
 
-.link {
+.link,
+.button {
   color: var(--foreground);
   font-size: 1rem;
   font-weight: 600;
@@ -57,4 +59,5 @@
 }
 
 .body {
+  padding: 0.25rem;
 }

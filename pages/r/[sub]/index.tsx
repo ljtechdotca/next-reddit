@@ -38,9 +38,7 @@ const SubPage: NextPage<ISubPage> = ({ sub }) => {
         <meta name="description" content={sub.body} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Layout sub={sub} posts={sub.posts} />
-      </div>
+      <Layout props={{ sub: sub, posts: sub.posts }} />
     </div>
   );
 };

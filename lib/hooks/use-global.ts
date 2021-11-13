@@ -1,4 +1,4 @@
-import { StateContext } from "@lib/context";
+import { GlobalContext } from "@lib/context";
 import { useContext } from "react";
 
-export const useGlobal = () => useContext<any>(StateContext);
+export const useGlobal = () => useContext<any>(GlobalContext);

@@ -1,18 +1,24 @@
-import { DataContext, Header, initialState } from "@components";
+import {
+  GlobalContextProvider,
+  Header,
+  initialState,
+  UserSession,
+} from "@components";
 import { contextReducer } from "@lib/helpers";
-import { useGlobal, useTheme } from "@lib/hooks";
+import { useTheme } from "@lib/hooks";
 import "@styles/globals.scss";
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-
-  useTheme(contextReducer);
+  useTheme();
 
   return (
-    <DataContext reducer={contextReducer} initialState={initialState}>
-      <Header />
-      <Component {...pageProps} />
-    </DataContext>
+    <GlobalContextProvider reducer={contextReducer} initialState={initialState}>
+      <UserSession>
+        <Header />
+        <Component {...pageProps} />
+      </UserSession>
+    </GlobalContextProvider>
   );
 }
 

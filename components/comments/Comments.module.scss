@@ -1,49 +1,5 @@
 .root {
-  display: flex;
-  margin: 0.5rem 0;
-}
-
-.header {
-  font-size: 0.75rem;
-  padding: 0.25rem;
-  color: var(--accent-2);
-}
-
-.link {
-  color: var(--foreground);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.25rem;
-  display: inline-flex;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .container {
-  flex: 1 1 0%;
-}
-
-.content {
-  padding: 0.25rem;
-}
-
-.heading {
-  display: grid;
-  width: 100%;
-  padding: 0.25rem;
-}
-
-.base {
-  padding: 0.25rem;
-}
-
-.icon {
-  display: grid;
-  padding: 0.25rem;
-  place-items: center;
-}
-
-.body {
-  padding: 0.25rem;
 }

@@ -1,13 +1,12 @@
-import { getCookie } from "@lib/helpers/cookies";
-import { setCookie } from "@lib/helpers/cookies/set-cookie";
+import { handleCookies } from "@lib/helpers";
 import { useEffect } from "react";
 
-export const useTheme = (reducer: any) => {
+export const useTheme = () => {
   useEffect(() => {
-    let themeValue = getCookie("theme");
-    !themeValue && setCookie("theme", "light");
+    let themeValue = handleCookies.get("theme");
+    !themeValue && handleCookies.set("theme", "light", 0, "/");
     themeValue = !themeValue ? "light" : themeValue;
     document.body.className = "";
     document.body.classList.add(themeValue);
-  }, [reducer]);
+  }, []);
 };

@@ -28,4 +28,7 @@ export const rCreate: ISub = {
   uri: "all",
 };
 
+// TODO : add env var
+export const SECRET_KEY = "uFTnHKbKnDyWMWxUFlJW6mqorFGxkWYq";
+
 export const defaultSubs = [rAll, rCreate];

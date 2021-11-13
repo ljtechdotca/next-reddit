@@ -1,25 +1,14 @@
-☐ interface
-  pages:
-    ✔ post page @done(21-11-12 17:55)
-      ✔ post name, body, createdAt @done(21-11-12 17:55)
-      - comments section
+☐ users
+  ☐ persist and handle user context
+    ✔ set cookie @done(21-11-13 13:21)
+    ✔ add user to global state @done(21-11-13 13:25)
+    ☐ check for user login
+      // some sort of api get / decode cookie
 
-  components:
-    ✔ post @done(21-11-12 17:55)
-      ✔ post items @done(21-11-12 17:55)
-    - vote
-    ✔ layout @done(21-11-12 14:26)
-      ✘ header @cancelled(21-11-12 13:02)
-      ✔ sidebar @done(21-11-12 14:26)
-      ✔ banner @done(21-11-12 14:26)
-      ✔ post @done(21-11-12 14:26)
-    ✔ header @done(21-11-11 16:20)
-      ✔ dropdown menu @done(21-11-11 16:20)
-      ✔ theme toggle @done(21-11-12 14:01)
-    ✔ banner @done(21-11-11 16:20)
-    ✔ sidebar @done(21-11-12 17:55)
-      ✔ create new sub @done(21-11-12 17:55)
-      ✔ create new post @done(21-11-12 17:55)
+☐ helpers
+  ☐ reducer
+    ✔ removed posts and subs (didnt seem necessary) @done(21-11-13 13:26)
 
-  hooks:
-    ✔ themes @done(21-11-12 17:55)
+  ☐ handle-cookies
+    ✔ create expiry cookies @done(21-11-13 13:20)
+    ✔ set expiry cookies @done(21-11-13 13:20)

@@ -1,5 +1,3 @@
-import { IPost, ISub } from "@lib/interfaces";
-
 export interface IAction {
   type: string;
   payload: any;
@@ -16,25 +14,17 @@ export const contextReducer = (state: any, action: IAction) => {
           ...state,
           theme,
         };
+      }
+      break;
+    case "user":
+      {
+        const user: any = payload;
+        console.log({ user });
+        newState = {
+          ...state,
+          user,
+        };
         console.log({ newState });
-      }
-      break;
-    case "subs":
-      {
-        const subs: ISub[] = payload;
-        newState = {
-          ...state,
-          subs,
-        };
-      }
-      break;
-    case "posts":
-      {
-        const posts: IPost[] = payload;
-        newState = {
-          ...state,
-          posts,
-        };
       }
       break;
     default:

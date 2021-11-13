@@ -16,7 +16,9 @@ export default async function handler(
   let updateSub: ISub | null = null;
 
   await database.connect();
+  
   const { Sub } = require("@lib/models");
+
   try {
     switch (method) {
       case "GET":

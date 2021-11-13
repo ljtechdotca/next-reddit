@@ -1,5 +1,4 @@
-import { getCookie } from "@lib/helpers/cookies";
-import { setCookie } from "@lib/helpers/cookies/set-cookie";
+import { handleCookies } from "@lib/helpers";
 import { useGlobal } from "@lib/hooks";
 import ChevronDown from "@public/icons/chevron-down.svg";
 import HelpCircle from "@public/icons/help-circle.svg";
@@ -16,20 +15,20 @@ export const Header = ({}: HeaderProps) => {
   const [{ theme }, dispatch] = useGlobal();
 
   useEffect(() => {
-    let themeValue = getCookie("theme");
-    !themeValue && setCookie("theme", "light");
+    let themeValue = handleCookies.get("theme");
+    !themeValue && handleCookies.set("theme", "light", 0, "/");
     themeValue = !themeValue ? "light" : themeValue;
     dispatch({ type: "theme", payload: themeValue });
   }, [dispatch]);
 
   function handleTheme(e: React.MouseEvent<HTMLButtonElement>) {
     e.stopPropagation();
-    let previousTheme = getCookie("theme");
+    let previousTheme = handleCookies.get("theme");
     const newTheme = previousTheme === "light" ? "dark" : "light";
     dispatch({ type: "theme", payload: newTheme });
     document.body.className = "";
     document.body.classList.add(newTheme);
-    setCookie("theme", newTheme);
+    handleCookies.set("theme", newTheme, 0, "/");
   }
 
   function handleMenu(e: React.MouseEvent<HTMLButtonElement>) {
@@ -91,12 +90,14 @@ export const Header = ({}: HeaderProps) => {
             </div>
             <hr className={styles.break} />
             <div className={styles.item}>
-              <button className={styles.button}>
-                <span className={styles.icon}>
-                  <LogIn width={16} height={16} />
-                </span>
-                Log In / Sign Out
-              </button>
+              <Link href="/login">
+                <a className={styles.link}>
+                  <span className={styles.icon}>
+                    <LogIn width={16} height={16} />
+                  </span>
+                  Log In / Sign Out
+                </a>
+              </Link>
             </div>
           </div>
         )}

@@ -10,10 +10,10 @@
   padding: 0.25rem;
   color: var(--accent-7);
   display: grid;
-  height: 2.5rem;
+  height: 2rem;
   border-radius: 3px;
   place-items: center;
-  width: 2.5rem;
+  width: 2rem;
   &_up {
     @extend .button;
     &:hover {
@@ -36,12 +36,12 @@
 }
 
 .container {
-  height: 2.5rem;
+  height: 2rem;
   display: grid;
   padding: 0.25rem;
   font-size: 0.75rem;
   place-items: center;
   font-weight: 600;
   color: var(--accent-3);
-  width: 2.5rem;
+  width: 2rem;
 }

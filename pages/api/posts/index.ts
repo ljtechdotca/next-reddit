@@ -14,11 +14,14 @@ export default async function handler(
   let createPost: IPost | null = null;
 
   await database.connect();
+  
   const { Post } = require("@lib/models");
+
   try {
     switch (method) {
       case "GET":
         findPosts = await Post.find().populate("sub");
+        findPosts.sort((a, b) => b.value - a.value);
         res.status(200).json({ posts: findPosts });
         break;
       case "POST":

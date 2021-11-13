@@ -4,21 +4,29 @@ import React from "react";
 import styles from "./Layout.module.scss";
 
 export interface LayoutProps {
-  sub: ISub;
-  posts: IPost[];
+  props: {
+    sub: ISub;
+    posts: IPost[];
+  };
 }
 
-export const Layout = ({ sub, posts }: LayoutProps) => {
+export const Layout = ({ props }: LayoutProps) => {
+  const handleVote = (id: string, value: number) => {};
+
   return (
     <div className={styles.root}>
-      <Banner sub={sub} />
+      <Banner sub={props.sub} />
       <div className={styles.container}>
         <div className={styles.posts}>
-          {posts.map((post) => (
-            <Post key={post._id as string} post={post} />
+          {props.posts.map((post: IPost) => (
+            <Post
+              key={post._id as string}
+              handleVote={(value) => handleVote(post._id as string, value)}
+              post={post}
+            />
           ))}
         </div>
-        <Sidebar sub={sub} />
+        <Sidebar sub={props.sub} />
       </div>
     </div>
   );

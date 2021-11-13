@@ -35,13 +35,13 @@ interface ICreatePostPage {
 
 const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
   const [alert, setAlert] = useState<string | null>(null);
-  // todo : if sub comes through bad, this will throw an error
   const [form, setForm] = useState({
     name: "",
     body: "",
     sub: { _id: sub._id, uri: sub.uri },
     value: 0,
   });
+
   const router = useRouter();
 
   const handleForm = (e: FormEvent<HTMLFormElement>) => {
@@ -50,7 +50,6 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
       ...form,
       uri: handleStrings.snake(form.name),
     };
-    console.log({ creatingPost: post });
     fetchWrapper
       .post("/api/posts", post)
       .then(async (data) => {
@@ -123,7 +122,7 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
               {alert}
             </div>
           )}
-          <button className={styles.button}>CREATE POST</button>{" "}
+          <button className={styles.button}>CREATE POST</button>
         </form>
       </div>
     </div>
