@@ -1,4 +1,4 @@
-import { handleCookies } from "@lib/helpers";
+import { handleCookies, handleSession } from "@lib/helpers";
 import { useGlobal } from "@lib/hooks";
 import ChevronDown from "@public/icons/chevron-down.svg";
 import HelpCircle from "@public/icons/help-circle.svg";
@@ -8,11 +8,12 @@ import User from "@public/icons/user.svg";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
+
 export interface HeaderProps {}
 
 export const Header = ({}: HeaderProps) => {
   const [active, setActive] = useState(false);
-  const [{ theme }, dispatch] = useGlobal();
+  const [{ theme, token }, dispatch] = useGlobal();
 
   useEffect(() => {
     let themeValue = handleCookies.get("theme");
@@ -90,14 +91,26 @@ export const Header = ({}: HeaderProps) => {
             </div>
             <hr className={styles.break} />
             <div className={styles.item}>
-              <Link href="/login">
-                <a className={styles.link}>
+              {token ? (
+                <button
+                  className={styles.button}
+                  onClick={() => handleSession.signOut(dispatch)}
+                >
                   <span className={styles.icon}>
                     <LogIn width={16} height={16} />
                   </span>
-                  Log In / Sign Out
-                </a>
-              </Link>
+                  Sign Out
+                </button>
+              ) : (
+                <Link href="/login">
+                  <a className={styles.link}>
+                    <span className={styles.icon}>
+                      <LogIn width={16} height={16} />
+                    </span>
+                    Log In / Sign Up
+                  </a>
+                </Link>
+              )}
             </div>
           </div>
         )}

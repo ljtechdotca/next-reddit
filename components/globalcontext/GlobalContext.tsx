@@ -9,7 +9,7 @@ export interface IInitialState {
 
 export const initialState = {
   theme: null,
-  user: null,
+  token: null,
 };
 
 interface IGlobalContext {

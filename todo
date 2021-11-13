@@ -1,14 +1,21 @@
 ☐ users
-  ☐ persist and handle user context
+  ✔ persist and handle user context @done(21-11-13 16:50)
     ✔ set cookie @done(21-11-13 13:21)
     ✔ add user to global state @done(21-11-13 13:25)
-    ☐ check for user login
-      // some sort of api get / decode cookie
+    ✔ check for user login @done(21-11-13 16:50)
 
 ☐ helpers
   ☐ reducer
     ✔ removed posts and subs (didnt seem necessary) @done(21-11-13 13:26)
+    ☐ user / token is kinda the same thing
 
   ☐ handle-cookies
     ✔ create expiry cookies @done(21-11-13 13:20)
     ✔ set expiry cookies @done(21-11-13 13:20)
+    ☐ remove cookie ? for user signout
+
+  ☐ hooks
+    ☐ useSignout
+
+☐ header
+  - sign out button

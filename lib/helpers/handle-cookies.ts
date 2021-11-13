@@ -1,11 +1,19 @@
 const handleDate = (seconds: number) => {
   const date = new Date();
-  return new Date(date.getTime() + seconds * 1000).toUTCString();
+  if (seconds === -1) {
+    return new Date(date.getDate());
+  } else {
+    return new Date(date.getTime() + seconds * 1000).toUTCString();
+  }
 };
 
 const _create = (name: string, value: any, seconds: number, path: string) => {
-  const expires = handleDate(seconds);
-  return `${name}=${value}; expires=${expires}; path=${path};`;
+  if (seconds) {
+    const expires = handleDate(seconds);
+    return `${name}=${value}; expires=${expires}; path=${path};`;
+  } else {
+    return `${name}=${value}; path=${path};`;
+  }
 };
 
 const _get = (name: string) => {
