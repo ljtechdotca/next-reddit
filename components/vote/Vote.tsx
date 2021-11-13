@@ -8,23 +8,15 @@ export interface VoteProps {
 }
 
 export const Vote = ({ handleVote, value }: VoteProps) => {
-  function handleEvent(event: React.MouseEvent<HTMLButtonElement>, value: number) {
-    event.stopPropagation();
-    handleVote(value);
-  }
-
   return (
     <div className={styles.root}>
-      <button className={styles.button} onClick={(event) => handleEvent(event, 1)}>
+      <button className={styles.button_up} onClick={() => handleVote(value)}>
         <span className={styles.icon}>
           <ChevronUp width={16} height={16} />
         </span>
       </button>
-      <div className={styles.container}>{value}</div>
-      <button
-        className={styles.button}
-        onClick={(event) => handleEvent(event, -1)}
-      >
+      <div className={styles.container}>{value ?? 0}</div>
+      <button className={styles.button_down} onClick={() => handleVote(value)}>
         <span className={styles.icon}>
           <ChevronDown width={16} height={16} />
         </span>

@@ -6,7 +6,6 @@ import styles from "@styles/Default.module.scss";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import getConfig from "next/config";
 import Head from "next/head";
-import Link from "next/link";
 
 const { publicRuntimeConfig } = getConfig();
 const baseUrl = `${publicRuntimeConfig.apiUrl}`;
@@ -33,16 +32,13 @@ interface ISubPage {
 
 const SubPage: NextPage<ISubPage> = ({ sub }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Head>
         <title>r/{sub.uri}</title>
         <meta name="description" content={sub.body} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Link href={`/r/${sub.uri}/create`}>
-          <a className={styles.button}>CREATE POST on r/{sub.uri}</a>
-        </Link>
         <Layout sub={sub} posts={sub.posts} />
       </div>
     </div>

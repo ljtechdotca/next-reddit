@@ -1,6 +1,7 @@
 // create a new post on the current subreddit
 import { fetchWrapper, handlePaths, handleStrings } from "@lib/helpers";
 import { IPath, ISub } from "@lib/interfaces";
+import AlertTriangle from "@public/icons/alert-triangle.svg";
 import styles from "@styles/Default.module.scss";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import getConfig from "next/config";
@@ -39,6 +40,7 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
     name: "",
     body: "",
     sub: { _id: sub._id, uri: sub.uri },
+    value: 0,
   });
   const router = useRouter();
 
@@ -48,6 +50,7 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
       ...form,
       uri: handleStrings.snake(form.name),
     };
+    console.log({ creatingPost: post });
     fetchWrapper
       .post("/api/posts", post)
       .then(async (data) => {
@@ -66,18 +69,22 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Head>
         <title>Post on r/{sub.uri}</title>
         <meta name="description" content={sub.body} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Link href={`/r/${sub.uri}`}>
-          <a>VIEW r/{sub.uri}</a>
-        </Link>
-
-        <form onSubmit={handleForm}>
+      <div className={styles.container}>
+        <form className={styles.form} onSubmit={handleForm}>
+          <div className={styles.heading}>
+            <h1>Create a Post</h1>
+            <div>
+              <Link href={`/r/${sub.uri}`}>
+                <a className={styles.link}>BACK TO r/{sub.uri}</a>
+              </Link>
+            </div>
+          </div>
           <fieldset>
             <input
               autoComplete="off"
@@ -104,14 +111,20 @@ const CreatePostPage: NextPage<ICreatePostPage> = ({ sub }) => {
               onChange={(e) =>
                 setForm((state) => ({ ...state, body: e.target.value }))
               }
-              placeholder="Description"
+              placeholder="Body"
               required
             />
           </fieldset>
-          <button>CREATE POST</button>
+          {alert && (
+            <div className={styles.alert}>
+              <span className={styles.icon}>
+                <AlertTriangle width={16} height={16} />
+              </span>
+              {alert}
+            </div>
+          )}
+          <button className={styles.button}>CREATE POST</button>{" "}
         </form>
-        <pre>{JSON.stringify({ form }, null, 2)}</pre>
-        <pre>{JSON.stringify({ alert }, null, 2)}</pre>
       </div>
     </div>
   );

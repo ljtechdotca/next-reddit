@@ -13,3 +13,19 @@ export const rAll: ISub = {
   updatedAt: "",
   uri: "all",
 };
+
+export const rCreate: ISub = {
+  _id: "1111",
+  avatar: "",
+  background: "dodgerblue",
+  body: "When your account is more than 30 days old, and you have acquired a small amount of positive karma, then you can create a subreddit of your own.",
+  createdAt: "",
+  moderators: [],
+  name: "all",
+  posts: [],
+  rules: [],
+  updatedAt: "",
+  uri: "all",
+};
+
+export const defaultSubs = [rAll, rCreate];

@@ -1,18 +1,6 @@
 .root {
   display: flex;
-  border-radius: 3px;
-  overflow: hidden;
   margin: 0.5rem 0;
-  cursor: pointer;
-  border: 1px solid var(--accent-7);
-  &:hover {
-    border-color: var(--accent-5);
-  }
-  &__active {
-    @extend .root;
-    cursor: unset;
-    border: unset;
-  }
 }
 
 .header {
@@ -57,4 +45,5 @@
 }
 
 .body {
+  padding: 0.25rem;
 }

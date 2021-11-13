@@ -1,4 +1,5 @@
 // finds or creates new subreddits
+import { defaultSubs } from "@lib/constants";
 import { handleError } from "@lib/helpers/api";
 import { ISub } from "@lib/interfaces";
 import { database } from "@lib/services";
@@ -23,7 +24,9 @@ export default async function handler(
         res.status(200).json({ subs: findSubs });
         break;
       case "POST":
-        // check for unique sub names
+        // check for constant or unique sub names
+        if (defaultSubs.some((sub) => sub.uri === body.uri))
+          throw new Error("This is a Default Sub");
         findSubs = await Sub.find({ uri: body.uri });
         if (findSubs.length > 0) throw new Error("This Sub Already Exists");
         createSub = await Sub.create(body);

@@ -1,6 +1,40 @@
 .root {
-  max-width: 220px;
+  max-width: 320px;
+  padding: 0 0 0 0.5rem;
+  width: 100%;
 }
 
 .container {
+  border: 1px solid var(--accent-7);
+  padding: 1rem;
+  border-radius: 3px;
+  margin: 0.5rem 0;
+}
+
+.break {
+  border-top: 1px solid var(--accent-7);
+  border-right: unset;
+  margin: 0.5rem 0;
+  border-bottom: unset;
+  border-left: unset;
+}
+
+.link {
+  margin: 1rem 0;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  &__outline {
+    @extend .link;
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  &__filled {
+    @extend .link;
+    color: var(--background);
+    background: var(--orange);
+  }
 }

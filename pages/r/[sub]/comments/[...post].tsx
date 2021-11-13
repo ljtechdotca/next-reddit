@@ -1,4 +1,5 @@
 // top comments on current post and post body
+import { Comments } from "@components";
 import { fetchWrapper, handlePaths } from "@lib/helpers";
 import { IPath, IPost } from "@lib/interfaces";
 import styles from "@styles/Default.module.scss";
@@ -30,15 +31,18 @@ interface ICommentsPage {
 }
 
 const CommentsPage: NextPage<ICommentsPage> = ({ post }) => {
+  function handleVote(value: number) {}
+
   return (
-    <div className={styles.container}>
+    <div className={styles.root}>
       <Head>
         <title>{post.name}</title>
         <meta name="description" content={post.body} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>{post.body}</div>
-      <pre>{JSON.stringify({ post }, null, 2)}</pre>
+      <div className={styles.container}>
+        <Comments post={post} />
+      </div>
     </div>
   );
 };

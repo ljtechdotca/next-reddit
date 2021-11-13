@@ -15,8 +15,11 @@ const PostSchema: mongoose.Schema<IPost> = new mongoose.Schema<IPost>(
       maxlength: [256, "Post name cannot be more than 256 characters."],
     },
     sub: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Sub",
+      _id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Sub",
+      },
+      uri: String,
     },
     uri: String,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },

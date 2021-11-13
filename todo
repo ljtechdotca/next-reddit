@@ -1,12 +1,12 @@
 ☐ interface
   pages:
-    - post page
-      - post name, body, createdAt
+    ✔ post page @done(21-11-12 17:55)
+      ✔ post name, body, createdAt @done(21-11-12 17:55)
       - comments section
 
   components:
-    - post
-      - post items
+    ✔ post @done(21-11-12 17:55)
+      ✔ post items @done(21-11-12 17:55)
     - vote
     ✔ layout @done(21-11-12 14:26)
       ✘ header @cancelled(21-11-12 13:02)
@@ -17,9 +17,9 @@
       ✔ dropdown menu @done(21-11-11 16:20)
       ✔ theme toggle @done(21-11-12 14:01)
     ✔ banner @done(21-11-11 16:20)
-    ☐ sidebar
-      - create new sub
-      - create new post
+    ✔ sidebar @done(21-11-12 17:55)
+      ✔ create new sub @done(21-11-12 17:55)
+      ✔ create new post @done(21-11-12 17:55)
 
   hooks:
-    - themes
+    ✔ themes @done(21-11-12 17:55)

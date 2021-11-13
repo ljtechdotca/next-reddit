@@ -1,10 +1,9 @@
+import { defaultSubs } from "@lib/constants";
 import { IParams, IPost, ISub } from "@lib/interfaces";
 
-const defaultSubPaths: IParams[] = [
-  { params: { sub: "all" } },
-  { params: { sub: "create" } },
-  { params: { sub: "front" } },
-];
+const defaultSubPaths: IParams[] = defaultSubs.map((sub) => {
+  return { params: { sub: sub.uri } };
+});
 
 const handleReturn = (paths: IParams[]) => {
   return {

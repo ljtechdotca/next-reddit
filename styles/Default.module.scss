@@ -1,8 +1,20 @@
+.root {
+  display: block;
+}
+
+.container {
+  margin: auto;
+  max-width: 1024px;
+  padding: 1rem;
+}
+
 .alert {
   color: var(--red);
   font-weight: 600;
   display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 1rem 0;
 }
 
 .icon {
@@ -11,6 +23,24 @@
   margin-right: 0.5rem;
 }
 
-.container {
-  padding: 1rem;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.form {
+  max-width: 440px;
+  margin: auto;
+}
+
+.button,
+.link {
+  display: grid;
+  font-weight: 600;
+  background: var(--blue);
+  color: var(--background);
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
 }
