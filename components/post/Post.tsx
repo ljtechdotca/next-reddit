@@ -9,11 +9,10 @@ import React from "react";
 import styles from "./Post.module.scss";
 
 export interface PostProps {
-  active: boolean;
   post: IPost;
 }
 
-export const Post = ({ active, post }: PostProps) => {
+export const Post = ({ post }: PostProps) => {
   const router = useRouter();
   function handleVote(value: number) {}
 
